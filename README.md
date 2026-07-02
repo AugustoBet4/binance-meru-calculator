@@ -23,6 +23,21 @@ Or run the file directly:
 go run calculator.go
 ```
 
+## Run the Sell Comparison
+
+The project also includes a sell-side comparison in `calculator-sell.go`.
+
+Run it with the `sell` build tag:
+
+```powershell
+go run -tags sell calculator-sell.go
+```
+
+This version compares:
+
+- Selling USDC directly in Meru with no fee
+- Sending USDC through Stellar to Binance, where the transfer fee is `1 USDC` fixed plus `0.5%`
+
 The calculator will prompt for:
 
 - Target USDC amount
@@ -79,3 +94,9 @@ The app compares:
 - Buying enough USDC on Binance to cover Binance and Meru fees, then transferring to Meru
 
 It prints the total BOB cost, effective rate, best option, and estimated savings.
+
+The sell comparison prints:
+
+- BOB received from selling directly in Meru
+- BOB received after Stellar transfer to Binance and selling there
+- The better option and how much more BOB you get
